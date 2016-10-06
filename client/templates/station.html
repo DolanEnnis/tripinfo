@@ -1,0 +1,32 @@
+<!--
+List of all ships that have arrived, based on Pat's Book-->
+
+
+<template name="station">
+  <div class ="container">
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Time</th>
+          <th>Date</th>
+          <th>Port</th>
+          <th>Pilot</th>
+          <th>status</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      {{#each arrivedships}}
+      <tbody>
+            <td><a href="{{pathFor 'shipEdit.show'}}"><strong>{{shipname}}</strong></a></td>
+            <td>{{formattedTime}}</td>
+            <td>{{formattedDate}}</td>
+            <td>{{port}}</td>
+            <td>{{inwardpilot}}</td>
+            <td>{{stage}}</td>
+      </tbody>
+      {{/each}}
+    </table>
+  </div>
+</template>

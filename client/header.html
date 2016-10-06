@@ -1,0 +1,45 @@
+<head>
+  <meta charset="utf-8">
+  <title>Ship Board</title>
+  <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+ <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA7XS-zaOCSg-ldJKFzxkYbHhZxO5UyR4&libraries=geometry&callback=initMap">
+</script>-->
+  <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
+</head>
+
+<template name="header">
+  <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">Ships</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li>
+            <a href="/allShips">All Ships</a>
+          </li>
+
+          <li>
+            <a href="/station">Station Book</a>
+          </li>
+          <li>
+            <a href="/addShip">New Ship</a>
+          </li>
+        <!--  <li>
+            <a href="/position">Position</a>
+          </li> Position not working yet-->>
+          <li>
+              <a href="/tide">Tide</a>
+          </li>
+          <li>
+            <a href="/tester">TEST</a>
+          </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {{> loginButtons}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>

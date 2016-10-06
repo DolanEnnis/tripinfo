@@ -1,0 +1,125 @@
+<template name="position">
+<div class="blue">
+
+<!--
+
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Brian's WP Web Project</title>
+      <link rel="shortcut icon" href="pilot_flag.ico" />
+      <link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
+      <link type="text/css" rel="stylesheet" href="css/stylesheet.css"/>
+     import jQuery -->
+<!--
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA7XS-zaOCSg-ldJKFzxkYbHhZxO5UyR4&libraries=geometry&callback=initMap">
+  </script>
+  <script src="js/scripy.js"></script>
+  </head>
+-->
+  <header>
+    <h1 class="NotWorking">Work in progress!!! Come back again later it might actualy work!!!!</h1>
+    <h1>Calculate Distance To Kilcreadaun</h1>
+  </header>
+
+
+  <div class="container">
+    <div class = "col-md-9">
+      <input id="posAsString" type="text">
+    </div>
+    <div class = "col-md-1">
+      <button id="inputPosition" type="button" class = "btn btn-primary btn-success"  >Submit</button>
+
+    </div>
+  </div>
+
+  <div id="PosAsNav" class="container">
+    <form id="myForm">
+      <div class = "col-md-2">
+        <h4>Latitude</h4>
+        <input type="text" class="Deg" id="lat" value="XX">
+        <span class="Char">&deg;</span>
+        <input type="text" class="Min" id="latMin" value="xx.xxx">
+        <span class="Char">'</span>
+        <input type="text" class="Quad" id="N/S" value="N">
+      </div>
+      <div class = "col-md-2">
+        <h4>Longitude</h4>
+        <input type="text" class="Deg" id="long" value="YY">
+        <span class="Char">&deg;</span>
+        <input type="text" class="Min" id="longMin" value="yy.yyy">
+        <span class="Char">'</span>
+        <input type="text" class="Quad" id="E/W" value="W">
+      </div>
+      <div class = "col-md-2">
+        <h4>Speed</h4>
+        <input type="text" class="Deg" id="speed" value="10">
+        <span class="Char">Knots</span>
+      </div>
+      <div class = "col-md-3">
+        <h4>Delay</h4>
+        <input type="text" class="Deg" id="delay" value="0">
+        <span class="Char">Min</span>
+      </div>
+      <div class = "col-md-1">
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <button class = "btn btn-primary" type="button" onclick="main()">RE-SUBMIT</button>
+      </div>
+    </form>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class = "col-md-4">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>From</td>
+              <td id="timeSeen"></td>
+            </tr>
+            <tr>
+              <td>Next Waypoint</td>
+              <td id = "WP"></td>
+            </tr>
+            <tr>
+              <td>Distance to WP</td>
+              <td id = "WPdist"></td>
+            </tr>
+            <tr>
+              <td>Distance to Kilcreadan</td>
+              <td id = "KillDist"></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Time to Kilcreadan</td>
+              <td> <span id = "KillTime"></span> hrs</td>
+            </tr>
+            <tr>
+              <td>ETA Kilcreadan</td>
+              <td id = "ETAKil"></td>
+            </tr>
+            <tr>
+              <td>ETA Scattery</td>
+              <td id = "ETAScattery"></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <div id ="varSpeed">
+          </div>
+        </table>
+      </div>
+
+      <div class = "col-md-8" id="map"></div>
+
+        </div>
+      </div>
+
+  </div>
+</template>

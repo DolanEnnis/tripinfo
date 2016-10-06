@@ -1,0 +1,21 @@
+<!--Page for adding new ships It displays Daydiary along side newship template form
+-->
+
+
+<template name="addShip">
+  <div class ="container">
+    <div class = "col-md-8">
+      <iframe class="daydiary" src="http://www.cargopro.ie/sfpc/download/rpt_daydiary.pdf">
+
+      </iframe>
+    </div>
+    <div class = "col-md-4">
+      {{#if currentUser}}
+            {{> newship}}
+
+      {{else}}
+            <h1> Sign in Please!!!</h1>
+      {{/if}}
+    </div>
+  </div>
+</template>

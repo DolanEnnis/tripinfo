@@ -1,0 +1,106 @@
+<!--
+This file contains the following templates: "ShipList"
+which calls on "due", "Awaitingberth","Alongside"
+It is the landing page for the app
+-->
+
+
+<template name="ShipList">
+  <div class ="container">
+  <div class = "col-md-8">
+    {{>due}}
+    {{>Awaitingberth}}
+    {{>Alongside}}
+  </div>
+  <div class = "col-md-4">
+      {{#if currentUser}}
+          {{> Template.dynamic template=active data=this}}
+      {{/if}}
+  </div>
+</div>
+</template>
+
+
+
+<template name="due">
+      <h3>Due</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>ETA</th>
+          <th>Berth</th>
+          <th>Note</th>
+          <th>Arrived?</th>
+        </tr>
+      </thead>
+      {{#each dueships}}
+      <tbody>
+            <td><a href="{{pathFor 'shipEdit.show'}}"><strong>{{shipname}}</strong></a></td>
+            <td>{{formattedeta}}</td>
+            <td>{{port}}</td>
+            <td>{{note}}</td>
+            <div class ="ships">
+            <td><button id="arrivedShip" type="button" class="btn btn-sm btn-success">Arrived</button></td>
+            </div>
+      </tbody>
+      {{/each}}
+    </table>
+</template>
+
+
+<template name="Awaitingberth">
+  <div class = "arrivedShip">
+    <h3>Awaiting berth</h3>
+ </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Pilot</th>
+        <th>Berth</th>
+        <th>Note</th>
+        <th>Arrived?</th>
+      </tr>
+    </thead>
+    {{#each waitingships}}
+    <tbody>
+          <td><a href="{{pathFor 'shipEdit.show'}}"><strong>{{shipname}}</strong></a></td>
+          <td>{{inwardpilot}}</td>
+          <td>{{port}}</td>
+          <td>{{note}}</td>
+          <div class ="ships">
+          <td><button id="berthed" type="button" class="btn btn-sm btn-success">Berthed</button></td>
+          </div>
+    </tbody>
+    {{/each}}
+  </table>
+</template>
+
+<template name="Alongside">
+  <div class = "berthed">
+    <h3>Alongside</h3>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>ETS</th>
+        <th>Berth</th>
+        <th>Note</th>
+        <th>Sailed?</th>
+      </tr>
+    </thead>
+    {{#each alongsideships}}
+    <tbody>
+          <td><a href="{{pathFor 'shipEditAlongside.show'}}"><strong>{{shipname}}</strong></a></td>
+          <td>{{formatEts}}</td>
+          <td>{{port}}</td>
+          <td>{{note}}</td>
+          <div class ="ships">
+          <td><button id="sailed" type="button" class="btn btn-sm btn-success">Sailed</button></td>
+          </div>
+    </tbody>
+    {{/each}}
+  </table>
+</template>

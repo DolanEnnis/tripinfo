@@ -1,0 +1,76 @@
+<!--These are the templates for the right of the landing page-->
+
+<template name="newship">
+  <h1>Insert New Ship</h1>
+    {{# autoForm collection="Ships" id="insertShipForm" type="insert"}}
+    <fieldset>
+      {{> afQuickField name="shipname"}}
+      {{> afQuickField name="gt"}}
+      {{> afQuickField name="note" rows=4}}
+      {{> afQuickField name="port"}}
+      {{> afQuickField name="eta"}}-->
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    {{/autoForm}}
+</template>
+
+
+<template name="arrivedShip">
+<div class = "arrivedShip">
+{{#if currentUser}}
+  <h1>Arrived Ship</h1>
+    {{# autoForm collection="Ships" id="updateShipsForm" type="update" doc=selectedShipDoc}}
+    <fieldset>
+      {{> afQuickField name="shipname"}}
+      {{> afQuickField name="stage" value="Waiting Berth"}}
+      {{> afQuickField name="port" }}
+      {{> afQuickField name="eta" }}
+      {{> afQuickField name="inwardpilot" autofocus=''}}
+      {{> afQuickField name="arrivalnote" rows=2}}
+    </fieldset>
+    <button type="Awaiting Berth" class="btn btn-primary">Awaiting Berth</button>
+    <button type="Alongside" class="btn btn-primary">Brd on Arr</button>
+    {{/autoForm}}
+    {{/if}}
+  </div>
+</template>
+
+
+<template name="berthed">
+<div class = "berthed">
+{{#if currentUser}}
+  <h1>Berthing Ship</h1>
+    {{# autoForm collection="Ships" id="updateShipsForm" type="update" doc=selectedShipDoc}}
+    <fieldset>
+      {{> afQuickField name="shipname"}}
+      {{> afQuickField name="gt" }}
+      {{> afQuickField name="stage" value="Alongside"}}
+      {{> afQuickField name="port" }}
+      {{> afQuickField name="inwardpilot" }}
+      {{> afQuickField name="boarding" autofocus=''}}
+    </fieldset>
+    <button type="Alongside" class="btn btn-primary">Alongside</button>
+    {{/autoForm}}
+    {{/if}}
+  </div>
+</template>
+
+<template name="sailed">
+<div class = "sailed">
+{{#if currentUser}}
+  <h1>Ship Departure</h1>
+    {{# autoForm collection="Ships" id="updateShipsForm" type="update" doc=selectedShipDoc}}
+    <fieldset>
+      {{> afQuickField name="shipname"}}
+      {{> afQuickField name="gt" }}
+      {{> afQuickField name="stage" value="Sailed"}}
+      {{> afQuickField name="port" }}
+      {{> afQuickField name="outwardpilot" }}
+      {{> afQuickField name="sailing" autofocus=''}}
+    </fieldset>
+    <button type="Sailed" class="btn btn-primary">Sailed</button>
+    {{/autoForm}}
+    {{/if}}
+  </div>
+</template>
