@@ -1,0 +1,59 @@
+<template name="shipEdit">
+  <div class ="container">
+  <div class = "col-md-8">
+  <h1>Edit Ships</h1>
+  {{# autoForm collection="Ships" id="updateShipsForm" type="update" doc=this}}
+
+  <fieldset>
+    {{> afQuickField name="shipname"}}
+    {{> afQuickField name="gt" }}
+    {{> afQuickField name="port"}}
+    <hr>
+    {{> afQuickField name="eta" }}
+    {{> afQuickField name="note" rows=4}}
+
+    <hr>
+    {{> afQuickField name="inwardpilot" }}
+    {{> afQuickField name="arrivalnote" rows=2}}
+    <hr>
+    {{> afQuickField name="boarding" autofocus=''}}
+    {{> afQuickField name="inwardpilot"  }}
+    <hr>
+    {{> afQuickField name="stage" }}
+
+
+  </fieldset>
+<!--  Standard quickform replaced by autoform
+{{>quickForm collection="Ships" id="updateShipsForm" type="update" doc=this}}-->
+<button type="submit" class="btn btn-primary">Submit</button>
+  <a class="btn" href="/">Back</a>
+  {{/autoForm}}
+</div>
+</div>
+</template>
+
+<template name="shipEditAlongside">
+  <h1>Edit Ships before Sailing</h1>
+  {{# autoForm collection="Ships" id="updateShipsForm" type="update" doc=this}}
+
+  <fieldset>
+    {{> afQuickField name="shipname"}}
+    {{> afQuickField name="gt" }}
+    {{> afQuickField name="port"}}
+    <hr>
+    {{> afQuickField name="sailing" }}
+    {{> afQuickField name="note" rows=4}}
+
+    <hr>
+    {{> afQuickField name="outwardpilot" }}
+    <hr>
+    {{> afQuickField name="stage" }}
+
+
+  </fieldset>
+<!--  Standard quickform replaced by autoform
+{{>quickForm collection="Ships" id="updateShipsForm" type="update" doc=this}}-->
+<button type="submit" class="btn btn-primary">Submit</button>
+  <a class="btn" href="/">Back</a>
+  {{/autoForm}}
+</template>
