@@ -40,6 +40,3 @@ Router.route('/position','position');
 
 // This page Shows a copy of google drive tide
 Router.route('/tide','tide');
-
-//A test page to check out features
-Router.route('/tester','test');

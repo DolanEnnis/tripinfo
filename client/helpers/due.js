@@ -45,8 +45,8 @@ Template.Awaitingberth.helpers({
     return Ships.find({stage: "Waiting Berth" });
   },
 
-  formattedeta:function(){
-    return this.eta ? moment(this.eta).format("ddd,Do, HH:mm") : 'Error'
+  formattedetb:function(){
+    return this.boarding ? moment(this.boarding).format("ddd,Do, HH:mm") : 'Awaiting Advice'
   }
 });
 
@@ -68,7 +68,7 @@ Template.Alongside.helpers({
     sort: {sailing:1}});
   },
   formatEts:function(){
-    return this.sailing ? moment(this.sailing).format("ddd,Do, HH:mm") : 'Give us a guss when she is going'
+    return this.sailing ? moment(this.sailing).format("ddd,Do, HH:mm") : 'When she is going?'
   }
 });
 

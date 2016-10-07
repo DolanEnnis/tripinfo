@@ -57,6 +57,7 @@ It is the landing page for the app
     <thead>
       <tr>
         <th>Name</th>
+        <th>ETB</th>
         <th>Pilot</th>
         <th>Berth</th>
         <th>Note</th>
@@ -66,6 +67,7 @@ It is the landing page for the app
     {{#each waitingships}}
     <tbody>
           <td><a href="{{pathFor 'shipEdit.show'}}"><strong>{{shipname}}</strong></a></td>
+          <td>{{formattedetb}}</td>
           <td>{{inwardpilot}}</td>
           <td>{{port}}</td>
           <td>{{note}}</td>
