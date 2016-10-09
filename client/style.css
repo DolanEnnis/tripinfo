@@ -9,6 +9,14 @@ hr {
     border-width: 5px;
 }
 
+.et{
+  width: 155px
+}
+
+.daydiary{
+  width: 150px
+}
+
 .daydiary {
   width: 100%;
   height: 600px;

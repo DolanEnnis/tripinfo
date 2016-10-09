@@ -18,6 +18,7 @@ It is the landing page for the app
       {{/if}}
   </div>
 </div>
+{{> autoformModals}}
 </template>
 
 
@@ -28,7 +29,7 @@ It is the landing page for the app
       <thead>
         <tr>
           <th>Name</th>
-          <th>ETA</th>
+          <th class="et">ETA</th>
           <th>Berth</th>
           <th>Note</th>
           <th>Arrived?</th>
@@ -37,7 +38,11 @@ It is the landing page for the app
       {{#each dueships}}
       <tbody>
             <td><a href="{{pathFor 'shipEdit.show'}}"><strong>{{shipname}}</strong></a></td>
-            <td>{{formattedeta}}</td>
+            <!-- Added for Modal uses yogiben:autoform-modals-->
+            <td>
+            {{#afModal class=" btn btn-default" collection="Ships" fields="shipname,eta,updateSource" operation="update" title="Update ETA" buttonClasses="btn-success" doc=_id}}
+            {{formattedeta}}
+            {{/afModal}}<h6><small>{{updateSource}}</small></h6></td>
             <td>{{port}}</td>
             <td>{{note}}</td>
             <div class ="ships">

@@ -168,8 +168,27 @@ Ships.attachSchema(new SimpleSchema({
     optional:true,
     label:"Outward Confirmed",
   },
+  updateSource:{
+  type:'String',
+  label:'Update Received From',
+  allowedValues: ['Sheet','AIS','Good Guess','Agent','Other'],
+  optional:true,
+  autoform: {
+    options:[
+      {label:'Sheet',value:'Sheet'},
+      {label:'AIS',value:'AIS'},
+      {label:'Good Guess!',value:'Good Guess'},
+      {label:'Agent',value:'Agent'},
+      {label:'Other',value:'Other'},
+    ]
+  }
+},
 
-//might make this array of each edit
+timeStamp:{
+  type:Date,
+  label:"Updated"
+},
+
   userId: {
     type: String,
     label:"Title"
@@ -204,6 +223,18 @@ Meteor.methods({
        shipname: ship.name
      }});
   }
+});
+// Use matb33:collection-hooks
+Ships.before.insert( function (user, doc) {
+    doc.timeStamp = new Date(); // Date.now();
+    doc.userId = user;
+});
+
+
+Ships.before.update(function (user, doc, fieldNames, modifier, options) {
+  modifier.$set = modifier.$set || {};
+  modifier.$set.timeStamp = new Date();
+  modifier.$set.userId = user;
 });
 
 Ships.allow({
