@@ -171,7 +171,7 @@ Ships.attachSchema(new SimpleSchema({
   updateSource:{
   type:'String',
   label:'Update Received From',
-  allowedValues: ['Sheet','AIS','Good Guess','Agent','Other'],
+  allowedValues: ['Sheet','AIS','Good Guess','Agent','Pilot','Other'],
   optional:true,
   autoform: {
     options:[
