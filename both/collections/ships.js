@@ -179,6 +179,7 @@ Ships.attachSchema(new SimpleSchema({
       {label:'AIS',value:'AIS'},
       {label:'Good Guess!',value:'Good Guess'},
       {label:'Agent',value:'Agent'},
+      {label:'Pilot',value:'Pilot'},
       {label:'Other',value:'Other'},
     ]
   }

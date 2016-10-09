@@ -7,12 +7,12 @@ It is the landing page for the app
 
 <template name="ShipList">
   <div class ="container">
-  <div class = "col-md-8">
+  <div class = "col-md-9">
     {{>due}}
     {{>Awaitingberth}}
     {{>Alongside}}
   </div>
-  <div class = "col-md-4">
+  <div class = "col-md-3">
       {{#if currentUser}}
           {{> Template.dynamic template=active data=this}}
       {{/if}}
@@ -28,27 +28,31 @@ It is the landing page for the app
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>Name</th>
+          <th class="et">Name</th>
           <th class="et">ETA</th>
           <th>Berth</th>
           <th>Note</th>
-          <th>Arrived?</th>
+          <th class="update">Arrived?</th>
+          <th class="update"><small>Updated</small></th>
         </tr>
       </thead>
       {{#each dueships}}
       <tbody>
-            <td><a href="{{pathFor 'shipEdit.show'}}"><strong>{{shipname}}</strong></a></td>
-            <!-- Added for Modal uses yogiben:autoform-modals-->
+            <td><a href="{{pathFor 'shipEdit.show'}}"><strong>{{shipname}}</strong></a>
+            </td>
             <td>
+<!-- Added for Modal uses yogiben:autoform-modals-->
             {{#afModal class=" btn btn-default" collection="Ships" fields="shipname,eta,updateSource" operation="update" title="Update ETA" buttonClasses="btn-success" doc=_id}}
             {{formattedeta}}
-            {{/afModal}}<h6><small>{{updateSource}}</small></h6></td>
+            {{/afModal}}</td>
             <td>{{port}}</td>
             <td>{{note}}</td>
             <div class ="ships">
             <td><button id="arrivedShip" type="button" class="btn btn-sm btn-success">Arrived</button></td>
             </div>
+            <td><h5><small>Updated {{formattedtimeStamp}} by {{updateSource}}</small></h5></td>
       </tbody>
+
       {{/each}}
     </table>
 </template>
@@ -61,24 +65,30 @@ It is the landing page for the app
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>ETB</th>
+        <th class="et">Name</th>
+        <th class="et">ETB</th>
         <th>Pilot</th>
         <th>Berth</th>
         <th>Note</th>
-        <th>Arrived?</th>
+        <th class="update">Boarded?</th>
+        <th class="update"><small>Updated</small></th>
       </tr>
     </thead>
     {{#each waitingships}}
     <tbody>
           <td><a href="{{pathFor 'shipEdit.show'}}"><strong>{{shipname}}</strong></a></td>
-          <td>{{formattedetb}}</td>
+          <td>
+<!-- Added for Modal uses yogiben:autoform-modals-->
+          {{#afModal class=" btn btn-default" collection="Ships" fields="shipname,boarding,updateSource" operation="update" title="Update Boarding" buttonClasses="btn-success" doc=_id}}
+          {{formattedetb}}
+          {{/afModal}}</td>
           <td>{{inwardpilot}}</td>
           <td>{{port}}</td>
           <td>{{note}}</td>
           <div class ="ships">
           <td><button id="berthed" type="button" class="btn btn-sm btn-success">Berthed</button></td>
           </div>
+          <td><h5><small>Updated {{formattedtimeStamp}} by {{updateSource}}</small></h5></td>
     </tbody>
     {{/each}}
   </table>
@@ -91,22 +101,28 @@ It is the landing page for the app
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>ETS</th>
+        <th class="et">Name</th>
+        <th class="et">ETS</th>
         <th>Berth</th>
         <th>Note</th>
-        <th>Sailed?</th>
+        <th class="update">Sailed?</th>
+        <th class="update"><small>Updated</small></th>
       </tr>
     </thead>
     {{#each alongsideships}}
     <tbody>
           <td><a href="{{pathFor 'shipEditAlongside.show'}}"><strong>{{shipname}}</strong></a></td>
-          <td>{{formatEts}}</td>
+          <td>
+<!-- Added for Modal uses yogiben:autoform-modals-->
+          {{#afModal class=" btn btn-default" collection="Ships" fields="shipname,sailing,updateSource" operation="update" title="Update Boarding" buttonClasses="btn-success" doc=_id}}
+          {{formatEts}}
+          {{/afModal}}</td>
           <td>{{port}}</td>
           <td>{{note}}</td>
           <div class ="ships">
           <td><button id="sailed" type="button" class="btn btn-sm btn-success">Sailed</button></td>
           </div>
+          <td><h5><small>Updated {{formattedtimeStamp}} by {{updateSource}}</small></h5></td>
     </tbody>
     {{/each}}
   </table>
