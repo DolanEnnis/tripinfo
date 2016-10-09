@@ -1,7 +1,5 @@
 Template.ShipList.created =  function() {
-  console.log("Working here")
   Session.set("board", "newship");
-  console.log(Session.get('board'));
 AutoForm.debug();
 };
 
@@ -26,6 +24,9 @@ Template.due.helpers({
   formattedeta:function(){
     return this.eta ? moment(this.eta).format("ddd,Do, HH:mm") : 'Error'
   },
+  formattedtimeStamp:function(){
+    return this.timeStamp ? moment(this.timeStamp).format("ddd,Do, HH:mm") : 'No Updates'
+  },
 
 });
 
@@ -42,12 +43,16 @@ Template.due.events ( {
 
 Template.Awaitingberth.helpers({
   waitingships:function(){
-    return Ships.find({stage: "Waiting Berth" });
+    return Ships.find({stage: "Waiting Berth" },{
+    sort: {boarding:1}});
   },
 
   formattedetb:function(){
     return this.boarding ? moment(this.boarding).format("ddd,Do, HH:mm") : 'Awaiting Advice'
-  }
+  },
+  formattedtimeStamp:function(){
+    return this.timeStamp ? moment(this.timeStamp).format("ddd,Do, HH:mm") : 'Error'
+  },
 });
 
 Template.Awaitingberth.events ( {
@@ -69,7 +74,10 @@ Template.Alongside.helpers({
   },
   formatEts:function(){
     return this.sailing ? moment(this.sailing).format("ddd,Do, HH:mm") : 'When she is going?'
-  }
+  },
+  formattedtimeStamp:function(){
+    return this.timeStamp ? moment(this.timeStamp).format("ddd,Do, HH:mm") : 'Error'
+  },
 });
 
 Template.Alongside.events ( {
