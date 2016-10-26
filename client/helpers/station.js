@@ -2,7 +2,7 @@ Template.station.helpers({
 
 
   arrivedships:function(){
-    console.log("station.js line 5");
+  
     return Ships.find({stage:{ $not: "Due"} },{sort: {eta:-1}});
   },
 

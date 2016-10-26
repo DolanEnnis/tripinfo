@@ -18,6 +18,14 @@ Router.route("/ships/:_id", function(){
     { name: 'shipEdit.show'}
   );
 
+// This ship indivdual page is specialy for ships Brian has done
+Router.route("/bdshipEdit/:_id", function(){
+    var item=Ships.findOne({_id: this.params._id});
+    this.render('bdshipEdit', {data: item});
+  },
+      { name: 'bdshipEdit.show'}
+    );
+
 //This ship indivdual page is specialy for ship already alongside
 Router.route("/shipsAlingside/:_id", function(){
     var item=Ships.findOne({_id: this.params._id});
@@ -40,3 +48,6 @@ Router.route('/position','position');
 
 // This page Shows a copy of google drive tide
 Router.route('/tide','tide');
+
+// Page to show all my ships
+Router.route('/bd','bd');
