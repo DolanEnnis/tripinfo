@@ -192,7 +192,6 @@ Ships.attachSchema(new SimpleSchema({
   },
 
   updateSource:{
-<<<<<<< HEAD
     type:'String',
     label:'Update Received From',
     allowedValues: ['Sheet','AIS','Good Guess','Agent','Other'],
@@ -207,22 +206,6 @@ Ships.attachSchema(new SimpleSchema({
         {label:'Other',value:'Other'},
       ]
     }
-=======
-  type:'String',
-  label:'Update Received From',
-  allowedValues: ['Sheet','AIS','Good Guess','Agent','Pilot','Other'],
-  optional:true,
-  autoform: {
-    options:[
-      {label:'Sheet',value:'Sheet'},
-      {label:'AIS',value:'AIS'},
-      {label:'Good Guess!',value:'Good Guess'},
-      {label:'Agent',value:'Agent'},
-      {label:'Pilot',value:'Pilot'},
-      {label:'Other',value:'Other'},
-    ]
-  }
->>>>>>> 6eeafeee85ac5f52a5e30099339bbf14c0d6911e
 },
 
 //Information only relates to Brian's Ships

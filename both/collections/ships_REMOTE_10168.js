@@ -9,22 +9,8 @@ Ships.attachSchema(new SimpleSchema({
     label:"Ship's Name",
     max: 50
   },
-  imo:{
-      type:Number,
-      label:"IMO number",
-   		min:  5000000,
-      optional:true,
-    },
-
-  gt:{
-      type:Number,
-      label:"Gross Tonnage",
-      optional:true,
-      min: 100
-    },
-
   note:{
-    type:'String',
+    type:String,
     label:"Note",
     optional:true,
   },
@@ -48,26 +34,6 @@ Ships.attachSchema(new SimpleSchema({
       ]
     }
   },
-
-  agent:{
-    type:'String',
-    label:'Agent',
-    allowedValues: ['Argosea','DSG','Mullocks','Scotts','Hamilton','Other'],
-    optional:true,
-    autoform: {
-      options:[
-        {label:'Argosea',value:'Argosea'},
-        {label:'DSG',value:'DSG'},
-        {label:'Mullocks',value:'Mullocks'},
-        {label:'Scotts',value:'Scotts'},
-        {label:'Hamilton',value:'Hamilton'},
-        {label:'Other',value:'Other'},
-      ]
-    }
-
-},
-
-
   eta:{
     type:Date,
     label:'ETA/Arrived',
@@ -95,6 +61,25 @@ Ships.attachSchema(new SimpleSchema({
     }
   },
 
+  assignedpilot:{
+    type:'String',
+    label:'Pilot (assigned)',
+    allowedValues: ['FG','BD','PB','Fin','MS','DB','PG','CB'],
+    optional:true,
+    autoform: {
+      options:[
+        {label:'Fergal',value:'FG'},
+        {label:'Brian',value:'BD'},
+        {label:'Peter',value:'PB'},
+        {label:'Fintan',value:'Fin'},
+        {label:'Mark',value:'MS'},
+        {label:'Dave',value:'DB'},
+        {label:'Paddy',value:'PG'},
+        {label:'Cyril',value:'CB'},
+
+      ]
+    }
+  },
 
   inwardpilot:{
     type:'String',
@@ -160,7 +145,12 @@ Ships.attachSchema(new SimpleSchema({
     }
   },
 
-
+  gt:{
+    type:Number,
+    label:"Gross Tonnage",
+    optional:true,
+    min: 100
+  },
   outwardnote:{
     type:String,
     label:"Note",
@@ -173,41 +163,12 @@ Ships.attachSchema(new SimpleSchema({
     label:"In Confirmed",
   },
 
-  Extrain:{
-    type:String,
-    label:"Extra In",
-    optional:true,
-  },
-
   confirmedOut:{
     type:Boolean,
     optional:true,
     label:"Outward Confirmed",
   },
-
-  Extraout:{
-    type:String,
-    label:"Extra Out",
-    optional:true,
-  },
-
   updateSource:{
-<<<<<<< HEAD
-    type:'String',
-    label:'Update Received From',
-    allowedValues: ['Sheet','AIS','Good Guess','Agent','Other'],
-    optional:true,
-    autoform: {
-      options:[
-        {label:'Sheet',value:'Sheet'},
-        {label:'AIS',value:'AIS'},
-        {label:'Good Guess!',value:'Good Guess'},
-        {label:'Agent',value:'Agent'},
-        {label:'Pilot',value:'Pilot'},
-        {label:'Other',value:'Other'},
-      ]
-    }
-=======
   type:'String',
   label:'Update Received From',
   allowedValues: ['Sheet','AIS','Good Guess','Agent','Pilot','Other'],
@@ -222,51 +183,8 @@ Ships.attachSchema(new SimpleSchema({
       {label:'Other',value:'Other'},
     ]
   }
->>>>>>> 6eeafeee85ac5f52a5e30099339bbf14c0d6911e
 },
 
-//Information only relates to Brian's Ships
-  Bdrefno:{
-    type:Number,
-    label:"Brian's Ref No",
-    optional:true,
-    min: 1000,
-    max: 2227},
-
-  monthNo:	{
-    type:String,
-    label:"Month No",
-    optional:true,
-  },
-
-  timeoff:	  {
-    type:Date,
-    label:'Time Off',
-    optional:true,
-    autoform:{
-      afFieldInput:{
-        type:"datetime-local",
-        format: "YYYY-MM-DD"
-      }
-    }
-  },
-
-  Car:			{
-    type:String,
-    label:"Car",
-    optional:true,},
-
-  Good:			{
-    type:String,
-    label:"Good   (1-Report, 3-Average, 5-Well Done)",
-    optional:true,
-    min: 1,
-    max:5,},
-
-
-//------------------------------------
-
-  //Automatic Information about updates
 timeStamp:{
   type:Date,
   label:"Updated"
@@ -325,6 +243,6 @@ Ships.allow({
     return doc && doc.userId === userId;
   },
   update: function(userId,doc){
-    return doc ;
+    return doc && doc.userId === userId;
   }
 })
