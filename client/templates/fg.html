@@ -1,0 +1,30 @@
+<template name="fg">
+  <div class ="container">
+      {{>fgships}}
+  </div>
+
+{{> autoformModals}}
+</template>
+
+<template name="fgships">
+      <h3>Fergal's Ships</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="et">Ship</th>
+          <th class="et">GT</th>
+          <th class="et">Berth</th>
+          <th class="et">Boarded</th>
+        </tr>
+      </thead>
+      {{#each fergalships}}
+      <tbody>
+            <td><strong>{{shipname}}</strong>
+            </td>
+            <td>{{gt}}</td>
+            <td>{{port}}</td>
+            <td>{{formattedeta}}</td>
+      </tbody>
+      {{/each}}
+    </table>
+</template>

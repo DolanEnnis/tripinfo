@@ -51,3 +51,6 @@ Router.route('/tide','tide');
 
 // Page to show all my ships
 Router.route('/bd','bd');
+
+// Page to show all Fergal's ships
+Router.route('/fg','fg');
