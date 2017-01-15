@@ -40,6 +40,9 @@ Router.route("/shipsAlingside/:_id", function(){
 // A list of all ships that have arrived in the river, based on pats book
 Router.route('/station','station');
 
+// A list of all ships that have arrived in the river, based on pats book
+Router.route('/sailingList','sailingList');
+
 // This page gives a copy of Day Diary alongside form to add new ships
 Router.route('/addShip','addShip');
 

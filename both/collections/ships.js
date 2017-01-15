@@ -23,9 +23,25 @@ Ships.attachSchema(new SimpleSchema({
       min: 100
     },
 
+
   note:{
+    // General note to be retained
     type:'String',
-    label:"Note",
+    label:"General Note",
+    optional:true,
+  },
+
+  arrivalnote:{
+    // Temp note regarding Inward trip
+    type:String,
+    label:"Temperary Inward Comment",
+    optional:true,
+  },
+
+  outwardnote:{
+    // Temp note regarding Inward trip
+    type:String,
+    label:"Temperary Outward Comment",
     optional:true,
   },
 
@@ -132,11 +148,7 @@ Ships.attachSchema(new SimpleSchema({
       ]
     }
   },
-  arrivalnote:{
-    type:String,
-    label:"Notes",
-    optional:true,
-  },
+
   boarding:{
     type:Date,
     label:'Boarding',
@@ -158,13 +170,6 @@ Ships.attachSchema(new SimpleSchema({
         format: "YYYY-MM-DD"
       }
     }
-  },
-
-
-  outwardnote:{
-    type:String,
-    label:"Note",
-    optional:true,
   },
 
   confirmedIn:{
@@ -246,18 +251,25 @@ Ships.attachSchema(new SimpleSchema({
     min: 1,
     max:5,},
 
+  brianNote:{
+    // Personal note about my ships
+    type:String,
+    label:"Btian's Notes",
+    optional:true,
+  },
+
 
 //------------------------------------
 
   //Automatic Information about updates
 timeStamp:{
   type:Date,
-  label:"Updated"
+  label:"Last updated"
 },
 
   userId: {
     type: String,
-    label:"Title"
+    label:"Last updated by"
   },
 
 }));

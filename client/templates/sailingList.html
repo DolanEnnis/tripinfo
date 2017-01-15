@@ -1,0 +1,29 @@
+<!--
+List of all ships that have arrived, based on Pat's Book-->
+
+
+<template name="sailingList">
+  <div class ="container">
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Time</th>
+          <th>Date</th>
+          <th>Port</th>
+          <th>Pilot Outward</th>
+        </tr>
+      </thead>
+      {{#each sailedships}}
+      <tbody>
+            <td><a href="{{pathFor 'shipEdit.show'}}"><strong>{{shipname}}</strong></a></td>
+            <td>{{formattedTime}}</td>
+            <td>{{formattedDate}}</td>
+            <td>{{port}}</td>
+            <td>{{outwardpilot}}</td>
+      </tbody>
+      {{/each}}
+    </table>
+  </div>
+</template>

@@ -50,6 +50,10 @@ hr {
   color: #ffff00
 }
 
+.checked {
+    color:#33334d;
+}
+
 #footer {
 	position: relative;
 	height: 50px;

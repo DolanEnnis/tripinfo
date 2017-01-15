@@ -31,7 +31,7 @@ It is the landing page for the app
           <th class="et">Name</th>
           <th class="et">ETA</th>
           <th>Berth</th>
-          <th>Note</th>
+          <th>Arrival Comment</th>
           <th class="update">Arrived?</th>
           <th class="update"><small>Updated</small></th>
         </tr>
@@ -46,7 +46,7 @@ It is the landing page for the app
             {{formattedeta}}
             {{/afModal}}</td>
             <td>{{port}}</td>
-            <td>{{note}}</td>
+            <td>{{arrivalnote}}</td>
             <div class ="ships">
             <td><button id="arrivedShip" type="button" class="btn btn-sm btn-success">Arrived</button></td>
             </div>
@@ -69,7 +69,7 @@ It is the landing page for the app
         <th class="et">ETB</th>
         <th>Pilot</th>
         <th>Berth</th>
-        <th>Note</th>
+        <th>Arrival Comment</th>
         <th class="update">Boarded?</th>
         <th class="update"><small>Updated</small></th>
       </tr>
@@ -84,7 +84,7 @@ It is the landing page for the app
           {{/afModal}}</td>
           <td>{{inwardpilot}}</td>
           <td>{{port}}</td>
-          <td>{{note}}</td>
+          <td>{{arrivalnote}}</td>
           <div class ="ships">
           <td><button id="berthed" type="button" class="btn btn-sm btn-success">Berthed</button></td>
           </div>
@@ -104,7 +104,7 @@ It is the landing page for the app
         <th class="et">Name</th>
         <th class="et">ETS</th>
         <th>Berth</th>
-        <th>Note</th>
+        <th>Sailing Comment</th>
         <th class="update">Sailed?</th>
         <th class="update"><small>Updated</small></th>
       </tr>
@@ -118,7 +118,7 @@ It is the landing page for the app
           {{formatEts}}
           {{/afModal}}</td>
           <td>{{port}}</td>
-          <td>{{note}}</td>
+          <td>{{outwardnote}}</td>
           <div class ="ships">
           <td><button id="sailed" type="button" class="btn btn-sm btn-success">Sailed</button></td>
           </div>

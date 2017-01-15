@@ -1,32 +1,60 @@
 <template name="shipEdit">
-  <div class ="container">
-  <div class = "col-md-8">
+    <div class ="container">
+        <div class = "col-md-12">
   <h1>Edit Ships</h1>
   {{# autoForm collection="Ships" id="updateShipsForm" type="update" doc=this}}
 
   <fieldset>
     {{> afQuickField name="shipname"}}
     {{> afQuickField name="gt" }}
+    {{> afQuickField name="imo" }}
+    {{> afQuickField name="agent" }}
     {{> afQuickField name="port"}}
-    <hr>
-    {{> afQuickField name="eta" }}
-    {{> afQuickField name="note" rows=4}}
-
-    <hr>
-    {{> afQuickField name="arrivalnote" rows=2}}
-    <hr>
-    {{> afQuickField name="boarding" autofocus=''}}
-    {{> afQuickField name="inwardpilot"  }}
-    <hr>
     {{> afQuickField name="stage" }}
-
+    {{> afQuickField name="note" }}
+    {{> afQuickField name="eta" }}
+    <hr>
 
   </fieldset>
-<!--  Standard quickform replaced by autoform
-{{>quickForm collection="Ships" id="updateShipsForm" type="update" doc=this}}-->
+  <div class = "col-md-6">
+      <h2>Inward</h2>
+    <fieldset>
+    {{> afQuickField name="boarding" autofocus=''}}
+    {{> afQuickField name="inwardpilot"  }}
+    {{> afQuickField name="arrivalnote" rows=2 }}
+    {{> afQuickField name="Extrain"  }}
+    {{> afQuickField name="confirmedIn"  }}
+  </fieldset>
+  </div>
+
+
+  <div class = "col-md-6">
+      <h2>Outward</h2>
+    <fieldset>
+
+  <!--  {{> afQuickField name="arrivalnote" rows=2}} -->
+
+    {{> afQuickField name="sailing" }}
+    {{> afQuickField name="outwardpilot"  }}
+    {{> afQuickField name="outwardnote" rows=2 }}
+    {{> afQuickField name="Extraout"  }}
+    {{> afQuickField name="confirmedOut"  }}
+  </fieldset>
+  </div>
+<div class = "col-md-12">
+  <hr>
+<fieldset>
+  {{> afQuickField name="updateSource" }}
+</fieldset>
+<div>
+  {{timeStamp}} by {{userId}}
+</div>
+
 <button type="submit" class="btn btn-primary">Submit</button>
   <a class="btn" href="/">Back</a>
+</div>
   {{/autoForm}}
+
 </div>
 </div>
 </template>
